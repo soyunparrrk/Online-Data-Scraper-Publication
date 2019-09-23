@@ -7,6 +7,7 @@ Downloaded Github and figured out how to commit and push.
 Searched for inspiration and found Google autocomplete API. Also learnt how to use node.js. 
 
 * This is a test for app.js.
+
   1. `node -v` on terminal to check whether I have node or not
   2. Copy the code from the node website(https://nodejs.org/en/docs/guides/getting-started-guide/), paste it in a new file and save. (file name ex. app.js)
   3. `cd` it in terminal. It will show the server address.
@@ -42,4 +43,39 @@ app.listen(port);
 console.log('Magic happens on port' + port);
 exports = module.exports = app;
 ```
- 2. Save it, run terminal and type `node app.js`
+  2. Save it, run terminal and type `node app.js`.
+  
+* Testing with wikipedia
+  Replace `app.get{}` part with this. Then it will bring the wiki page.
+```
+  app.get('/', function(req, res){
+    var url = "https://en.wikipedia.org/wiki/Dog";
+    request(url, function(error, response, html) {
+    if ( !error ){
+        res.send(html);
+    }
+    });
+});
+```
+   Replace `if (!error)` part with this. Then it will read the data according to the request.
+```
+if ( !error ){
+        
+        var wiki_data = {
+            title: '',
+            img: '',
+            paragraph: ''
+            
+        }; 
+        
+        var $ = cheerio.load(html);
+        
+        $('#content').filter(function(){
+        wiki_data.title = $(this).find('h1').text();
+        wiki_data.img = $(this).find('img').first().attr('src');
+        wiki_data.paragraph = $(this).find('p').text();
+        });
+        
+        res.send(wiki_data);
+    }
+```

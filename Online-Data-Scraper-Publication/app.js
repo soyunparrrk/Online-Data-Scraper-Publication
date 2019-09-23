@@ -1,14 +1,16 @@
-const http = require('http');
+// storing dependencies in variables
+var express = require('express');
+var request = require('request');
+var cheerio = require('cheerio');
+var fs = require('fs');
 
-const hostname = '127.0.0.1';
-const port = 3000;
+var port = 8081;
+var app = express();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+app.get('/', function(req, res){
+    res.send('Hello World!');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+app.listen(port);
+console.log('Magic happens on port' + port);
+exports = module.exports = app;

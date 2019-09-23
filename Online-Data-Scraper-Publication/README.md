@@ -1,10 +1,10 @@
 # Online-Data-Scraper-Publication
 
 ### 9 Spet 2019
-**Downloaded Github and figured out how to commit and push.**
+? Downloaded Github and figured out how to commit and push.
 
 ### 16 Sept 2019
-**Searched for inspiration and found Google autocomplete API. Also learnt how to use node.js.**
+> Searched for inspiration and found Google autocomplete API. Also learnt how to use node.js.
 
 :black_small_square: This is a test for app.js.
   1. `node -v` on terminal to check whether I have node or not
@@ -13,7 +13,7 @@
   4. I can access the address through a web browser.
 
 ### 23 Sept 2019
-**Learnt more of node through terminal and started data scraping on wikipedia.**
+> Learnt more of node through terminal and started data scraping on wikipedia.
 
 :black_small_square: Downloading nodemon
   1. At terminal, say:

@@ -16,14 +16,14 @@ Searched for inspiration and found Google autocomplete API. Also learnt how to u
 ### 23 Sept 2019
 Learnt more of node through terminal.
 
-* Downloading nodemon
+:black_small_square: Downloading nodemon
   1. At terminal, say:
 `sudo npm install -g nodemon`
   2. change directory to the folder, and say:
 `npm install`
   (Then it will install node modules to the folder.)
 
-* Integrating nodemon
+:black_small_square: Integrating nodemon
   1. Type this code in app.js.
 ```
 // storing dependencies in variables
@@ -43,9 +43,9 @@ app.listen(port);
 console.log('Magic happens on port' + port);
 exports = module.exports = app;
 ```
-  2. Save it, run terminal and type `node app.js`.
+   2. Save it, run terminal and type `node app.js`.
   
-* Testing with wikipedia
+:black_small_square: Testing with wikipedia
   Replace `app.get{}` part with this. Then it will bring the wiki page.
 ```
   app.get('/', function(req, res){

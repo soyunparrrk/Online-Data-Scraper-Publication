@@ -13,7 +13,7 @@
   4. I can access the address through a web browser.
 
 ### 23 Sept 2019
-*Learnt more of node through terminal and started data scraping on wikipedia.*
+*Learnt more of node through terminal and started data scraping on wikipedia/imdb.*
 
 :black_small_square: Downloading nodemon
   1. At terminal, say:
@@ -80,12 +80,52 @@ if ( !error ){
 ```
 
 :black_small_square: Let's work with imdb this time.
-We copy paste the wikipediea app.get part and type `/imdb` after slash part of `app.get('/...'`. 
+We copy paste the wikipediea app.get part and type `/imdb` after slash part of `app.get('/...'`. Change `wiki_data` to `imdb_data`. Now we have two `app.get`.
+
+We are going to try to get the `.lister` information from imdb top website. Add this code after `            var $ = cheerio.load(html);`
+
+```
+$('.lister').filter(function() {
+                $(this).find('tr').each(function (i, element) {
+                    imdb_data[i] = "'" + $(this).find('img').attr('src') + "'";
+                });
+
+
+            });
+```
 
 :black_small_square: Creating a javascript file. 
-Put this code after `res.send(imdb_data);`to automatically create a javascript file.
+Put this code after `res.send(imdb_data);`to automatically create a javascript file called imdb_output.js.
 ```
-fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data"]", function(error){
+fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data + "]", function(error){
             console.log("File is written sucessfully!");
             });
 ```
+
+:black_small_square: Create HTML to display.
+```
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <script src="imdb_output.js"></script>
+        <script type="text/javascript">
+            function load_imdb_images(){
+                var div = document.getElementById('data');
+                
+                for(var i = 0; i < imdb_output.length; i++){
+                    var img = "<img class='tile' src='" + imdb_output[i] + "'>";
+                    div.innerHTML = div.innerHTML + img;
+                }
+                
+            }
+        </script>
+    </head>
+    <body onload="load_imdb_images()">
+        <div id="data">
+        </div>
+    
+    </body>
+    
+</html>
+```
+:black_small_square: Check out https://soyunparrrk.github.io/ if it's working.

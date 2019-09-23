@@ -43,7 +43,7 @@ app.get('/imdb', function (req, res) {
 
             var $ = cheerio.load(html);
 
-            $('.lister').filter(function () {
+            $('.lister').filter(function() {
                 $(this).find('tr').each(function (i, element) {
                     imdb_data[i] = "'" + $(this).find('img').attr('src') + "'";
                 });
@@ -52,7 +52,7 @@ app.get('/imdb', function (req, res) {
             });
 
             res.send(imdb_data);
-            fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data"]", function(error){
+            fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data + "]", function(error){
             console.log("File is written sucessfully!");
             });
         }

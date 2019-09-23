@@ -45,14 +45,14 @@ app.get('/imdb', function (req, res) {
 
             $('.lister').filter(function () {
                 $(this).find('tr').each(function (i, element) {
-                    imdb_data[i] = $(this).find('img').attr('src');
+                    imdb_data[i] = "'" + $(this).find('img').attr('src') + "'";
                 });
 
 
             });
 
             res.send(imdb_data);
-            fs.writeFile('imdb_output.js', imdb_data, function(error){
+            fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data"]", function(error){
             console.log("File is written sucessfully!");
             });
         }

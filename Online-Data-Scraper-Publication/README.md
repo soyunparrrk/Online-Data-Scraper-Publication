@@ -44,7 +44,7 @@ exports = module.exports = app;
 ```
   2. Save it, run terminal and type `node app.js`.
   
-:black_small_square: Testing with wikipedia
+:black_small_square: Testing with wikipedia.
   Replace `app.get{}` part with this. Then it will bring the wiki page.
 ```
   app.get('/', function(req, res){
@@ -78,9 +78,10 @@ if ( !error ){
         res.send(wiki_data);
     }
 ```
-:black_small_square: Put this code after `res.send(imdb_data);`to automatically create a javascript file.
+:black_small_square: Creating js file. 
+Put this code after `res.send(imdb_data);`to automatically create a javascript file.
 ```
-fs.writeFile('imdb_output.js', imdb_data, function(error){
+fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data"]", function(error){
             console.log("File is written sucessfully!");
             });
 ```

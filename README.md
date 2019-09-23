@@ -78,7 +78,11 @@ if ( !error ){
         res.send(wiki_data);
     }
 ```
-:black_small_square: Creating js file. 
+
+:black_small_square: Let's work with imdb this time.
+We copy paste the wikipediea app.get part and type `/imdb` after slash part of `app.get('/...'`. 
+
+:black_small_square: Creating a javascript file. 
 Put this code after `res.send(imdb_data);`to automatically create a javascript file.
 ```
 fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data"]", function(error){

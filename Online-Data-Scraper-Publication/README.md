@@ -78,3 +78,9 @@ if ( !error ){
         res.send(wiki_data);
     }
 ```
+:black_small_square: Put this code after `res.send(imdb_data);`to automatically create a javascript file.
+```
+fs.writeFile('imdb_output.js', imdb_data, function(error){
+            console.log("File is written sucessfully!");
+            });
+```

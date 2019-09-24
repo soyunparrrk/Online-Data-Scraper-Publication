@@ -80,6 +80,7 @@ if ( !error ){
 ```
 
 :black_small_square: Let's work with imdb this time.
+
 We copy paste the wikipediea app.get part and type `/imdb` after slash part of `app.get('/...'`. Change `wiki_data` to `imdb_data`. Now we have two `app.get`.
 
 We are going to try to get the `.lister` information from imdb top website. Add this code after `            var $ = cheerio.load(html);`
@@ -95,6 +96,7 @@ $('.lister').filter(function() {
 ```
 
 :black_small_square: Creating a javascript file. 
+
 Put this code after `res.send(imdb_data);`to automatically create a javascript file called imdb_output.js.
 ```
 fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data + "]", function(error){
@@ -128,4 +130,4 @@ fs.writeFile('imdb_output.js', "var imdb_output = [" + imdb_data + "]", function
     
 </html>
 ```
-:black_small_square: Check out https://soyunparrrk.github.io/ if it's working.
+:black_small_square: Check out https://soyunparrrk.github.io/Online-Data-Scraper-Publication/ if it's working.
